@@ -1,13 +1,90 @@
 ---
-title: Hello World
-description: Your first document
+title: Quickstart
+description: Getting started with better-env
+icon: Album
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Lock, FileX, FolderKey, Terminal } from 'lucide-react';
 
-## What is Next?
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+## Introduction
+
+better-env is a simple, secure CLI tool to manage environment variables centrally on your machine using OpenPGP encryption.
+Keep your secrets out of repos and out of plaintext files, loading them into apps only at runtime.
+Never accidentally commit secrets again. `.better-env` files are fully commit-safe.
+
+
+## Why better-env?
+
+<Cards>  
+  <Card   
+    icon={<Lock className="text-blue-300" />}   
+    title="Global encrypted store"
+  >
+    All your secrets stored securely per user with OpenPGP encryption
+  </Card>
+  <Card
+    icon={<FileX className="text-blue-300" />}
+    title="No plaintext files"
+  >
+    No plaintext .env files needed in projects, no risk of accidentally committing secrets.
+  </Card>
+  <Card
+    icon={<FolderKey className="text-blue-300" />}
+    title="Per-project selection"
+  >
+    Easy per-project selection of which keys to load configured in .better-env files.
+  </Card>
+  <Card
+    icon={<Terminal className="text-blue-300" />}   
+    title="Shell-friendly"
+  >
+    Export/unset to the parent shell, or run commands in an isolated child environment.
+  </Card>
 </Cards>
+
+
+## Installation
+
+```bash
+go install github.com/better-env/better-env@latest
+```
+
+## Setup
+
+```bash
+bnv setup
+```
+You will be prompted to do a few things:
+1) Set up a new OpenPGP key
+2) Run a command to add a function to your shell config to load secrets
+
+## Usage
+
+### 1) Store secrets (one-time)
+
+```bash
+bnv store KEY
+```
+
+### 2) Import and use secrets
+
+```bash
+cd /path/to/my/project
+bnv init
+bnv add KEY
+bnv load
+```
+
+The idea is you store the secrets once in the global store, and you can import and use them in your projects whenever you want.
+
+## Core concepts
+- The Global Store: A single encrypted store of all your secrets lives in the user's config directory.
+- The Project Link: Each project has a `.better-env` file that lists which keys the project uses.
+- Two ways to use secrets:
+  - `bnv load` / `bnv unload`: set/unset secrets in your current shell via the shell function wrapper
+  - `bnv run`: run a command with secrets only available to the child process
+
+<Callout>
+  This tool is currently fully supported only for UNIX based systems. Windows has partial support. Check [platform support](./platforms) for more details.
+</Callout>
