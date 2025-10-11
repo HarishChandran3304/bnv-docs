@@ -1,0 +1,61 @@
+---
+title: Running Projects
+description: How to execute commands with environment variables and secrets loaded from your project configuration.
+icon: Terminal
+---
+
+There are 2 ways to use better-env to run projects:
+
+## 1) Load and Unload Secrets 
+### Load secrets
+
+You can load secrets into your shell by running the following command:
+
+```bash
+bnv load
+```
+
+You will be prompted for:
+
+- The passphrase for your OpenPGP key
+
+This will set the environment variables in your shell using the function wrapper you have set up in your shell config.
+This is how it works:
+1) It reads the `.better-env` file in your current directory to determine which secrets to load.
+2) Then it uses your OpenPGP key to decrypt them and fetch them from the global store.
+3) Once fetched it sets each secret as an environment variable in your shell.
+4) You can do an `echo $KEY` to verify that the secret is set.
+5) Now, you can run any program that uses environment variables to access the secrets.
+
+### Unload secrets
+
+You can unload secrets from your shell by running the following command:
+
+```bash
+bnv unload
+```
+
+This will unset the environment variables in your shell.
+
+## 2) Run the command directly
+
+You can run a command directly by running the following command:
+
+```bash
+bnv run YOUR COMMAND
+```
+For example:
+```bash
+bnv run python3 main.py
+```
+
+This will run the command with the environment variables and secrets loaded from your project configuration.
+This is how it works:
+1) It reads the `.better-env` file in your current directory to determine which secrets to load.
+2) Then it uses your OpenPGP key to decrypt them and fetch them from the global store.
+3) It internally runs the command with the environment variables and secrets loaded like so:
+```bash
+python3 main.py KEY1=VALUE1 KEY2=VALUE2 ...
+```
+
+This method is way safer and the recommended way to use better-env since only the child process will have access to the secrets..
