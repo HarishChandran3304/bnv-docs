@@ -58,4 +58,14 @@ This is how it works:
 python3 main.py KEY1=VALUE1 KEY2=VALUE2 ...
 ```
 
-This method is way safer and the recommended way to use better-env since only the child process will have access to the secrets..
+This method is way safer and the recommended way to use better-env since only the child process will have access to the secrets.
+
+## `bnv load` vs `bnv run`
+
+|  | `bnv load` | `bnv run` |
+| --- | --- | --- |
+| How it works | Loads secrets into your current shell via the shell function wrapper; variables persist until you `bnv unload` or close the shell. | Starts the command in a child process with secrets injected only for that process; parent shell remains untouched. |
+| Pros | Convenient for interactive sessions; can run multiple commands without prefixing; easy local development. | Safer by default; secrets are ephemeral to the child process; no shell setup required; ideal for scripts/CI and one-off commands; automatic cleanup. |
+| Cons | Secrets live in the parent shell environment; higher risk of accidental leakage to sub-processes; requires shell wrapper setup; less safe. | Must prefix each command; slightly less convenient for long interactive sessions. |
+
+Recommendation: prefer `bnv run` for most workflows; use `bnv load` only when you need an interactive shell with many commands sharing the same environment.

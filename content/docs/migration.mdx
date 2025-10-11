@@ -1,0 +1,20 @@
+---
+title: Migration Guide
+description: How to migrate from .env to better-env
+icon: ArrowRight
+---
+
+## Migrating from .env
+
+You can migrate from .env to better-env by running the following command:
+
+```bash
+bnv migrate /path/to/your/.env
+```
+
+This will migrate the secrets from the .env file to the global store.
+
+You will be prompted for the following:
+- Passphrase for your OpenPGP key
+- If you want to delete the .env file after migration
+- If you want to create a matching .better-env file in the same directory
