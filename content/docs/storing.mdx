@@ -1,0 +1,96 @@
+---
+title: Storing secrets
+description: How to work with the global store
+icon: Lock
+---
+
+## Store a secret
+
+You can store secrets in the global store by running the following command:
+
+```bash
+bnv store KEY
+```
+
+You will be prompted for:
+
+- The value of the secret
+- The passphrase for your OpenPGP key
+
+This is a one-time operation.
+Once you have stored your secrets, you can import and use them in your projects whenever you want.
+You can store multiple secrets in the global store by running the command multiple times.
+
+## Retrieve a stored secret
+
+### View a secret
+
+You can output secrets to stdout by running the following command:
+
+```bash
+bnv list KEY
+```
+
+You will be prompted for:
+
+- The passphrase for your OpenPGP key
+
+### Copy a secret to clipboard
+
+You can copy a secret to clipboard by running the following command:
+
+```bash
+bnv copy KEY
+```
+
+You will be prompted for:
+
+- The passphrase for your OpenPGP key
+
+## Update a stored secret
+
+### Update value
+
+You can update the value of a secret by running the following command:
+
+```bash
+bnv update KEY
+```
+
+You will be prompted for:
+
+- The new value of the secret
+- The passphrase for your OpenPGP key
+
+### Rename key
+
+You can rename a secret by running the following command:
+
+```bash
+bnv rename KEY
+```
+
+You will be prompted for:
+
+- The new name of the secret
+- The passphrase for your OpenPGP key
+
+<Callout>
+  Your .better-env files will still have the old key, you will need to update it manually.
+</Callout>
+
+## Delete a stored secret
+
+You can delete a secret by running the following command:
+
+```bash
+bnv delete KEY
+```
+
+You will be prompted for:
+
+- The passphrase for your OpenPGP key
+
+<Callout>
+  Your .better-env files will still have the old key, you will have to remove it manually.
+</Callout>
