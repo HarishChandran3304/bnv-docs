@@ -1,0 +1,30 @@
+---
+title: Platforms Supported
+description: What platforms are supported by better-env
+icon: Computer
+---
+
+## Current support
+
+| Platform | Support |
+| --- | --- |
+| Linux | ✅ |
+| macOS | ✅ |
+| Windows | Partial support |
+
+## Windows
+
+Status: Partial support
+
+Works:
+- `setup`, `init`, `store`, `update`, `delete`, `rename`, `show`, `copy`, `import`, `add`, `remove`, `list`, `run`
+
+Limitations:
+- load / unload print POSIX export/unset lines and won’t affect PowerShell/cmd parent shells.
+
+Workarounds:
+- Prefer `bnv run` to execute your app with secrets in the child process environment on native Windows. (Recommended)
+- Use Git Bash or WSL to enable `load`/`unload` via the shell function.
+
+Planned:
+- Native PowerShell integration.
