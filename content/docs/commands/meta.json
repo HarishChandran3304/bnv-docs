@@ -1,0 +1,21 @@
+{
+    "title": "Commands Reference",
+    "icon": "Book",
+    "pages": [
+        "setup",
+        "init",
+        "store",
+        "update",
+        "delete",
+        "rename",
+        "show",
+        "copy",
+        "import",
+        "add",
+        "remove",
+        "list",
+        "load",
+        "unload",
+        "run"
+    ]
+}
