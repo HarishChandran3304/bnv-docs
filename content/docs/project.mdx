@@ -1,0 +1,45 @@
+---
+title: Project Config
+description: How to configure your project to use better-env
+icon: FolderKey
+---
+
+## Initialize better-env
+
+You can initialize better-env for your project by running the following command:
+
+```bash
+bnv init
+```
+This will create an empty `.better-env` file in your current directory.
+
+## Add secrets
+
+You can add a secret to your project by running the following command:
+
+```bash
+bnv add KEY
+```
+This will add the secret to the `.better-env` file in your current directory.
+
+<Callout>
+    Remember that no validation happens on the keys being added to your project, so make sure they exist in the global store before adding to prevent unexpected behavior.
+</Callout>
+
+## View secrets
+
+You can view the secrets in your project by running the following command:
+
+```bash
+bnv list
+```
+This will output the list of secrets in your project to stdout.
+
+## Remove secrets
+
+You can remove a secret from your project by running the following command:
+
+```bash
+bnv remove KEY
+```
+This will remove the secret from the `.better-env` file in your current directory.

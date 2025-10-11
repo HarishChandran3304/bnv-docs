@@ -1,5 +1,5 @@
 ---
-title: Storing secrets
+title: Storing Secrets
 description: How to work with the global store
 icon: Lock
 ---
@@ -28,7 +28,7 @@ You can store multiple secrets in the global store by running the command multip
 You can output secrets to stdout by running the following command:
 
 ```bash
-bnv list KEY
+bnv show KEY
 ```
 
 You will be prompted for:
@@ -46,6 +46,14 @@ bnv copy KEY
 You will be prompted for:
 
 - The passphrase for your OpenPGP key
+
+### List all secrets
+
+You can list all secrets in the global store by running the following command:
+
+```bash
+bnv list --all
+```
 
 ## Update a stored secret
 
