@@ -1,0 +1,49 @@
+---
+title: Setup
+description: How to setup better-env
+icon: Wrench
+---
+
+### Step 1
+Run the following command to begin the setup:
+```bash
+bnv setup
+```
+
+This will walk you through setting up an OpenPGP key and creating the config directory.
+You will be prompted for:
+
+- Your name
+- Your email address
+- A passphrase to encrypt your PGP key
+
+
+### Step 2
+Update your shell config to load secrets into your shell.
+You will be given a command to run that will add a function to your shell config.
+This is necessary to load secrets into your shell (`bnv load` command).
+
+```bash tab="zsh"
+echo 'bnv() { if [ "$1" = "load" ]; then eval "$(command bnv load)"; elif [ "$1" = "unload" ]; then eval "$(command bnv unload)"; else command bnv "$@"; fi }' >> ~/.zshrc && source ~/.zshrc
+```
+
+```bash tab="bash"
+echo 'bnv() { if [ "$1" = "load" ]; then eval "$(command bnv load)"; elif [ "$1" = "unload" ]; then eval "$(command bnv unload)"; else command bnv "$@"; fi }' >> ~/.bashrc && source ~/.bashrc
+```
+
+```bash tab="others"
+# Add the following to your shell config and restart your shell 
+bnv() {
+  if [ "$1" = "load" ]; then
+    eval "$(command bnv load)"
+  elif [ "$1" = "unload" ]; then
+    eval "$(command bnv unload)"
+  else
+    command bnv "$@"
+  fi
+}
+```
+
+<Callout>
+  You can skip this step if you don't want to use the `bnv load` command (You can use `bnv run` instead).
+</Callout>
