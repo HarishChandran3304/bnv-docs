@@ -14,7 +14,8 @@ icon: Download
 ### Direct install
 
 ```bash
-go install github.com/HarishChandran3304/better-env@latest
+go install github.com/HarishChandran3304/better-env@latest # Install binary
+sudo mv ~/go/bin/better-env ~/usr/local/bin/bnv # Move to PATH
 ```
 
 ### Build from source
@@ -23,5 +24,5 @@ go install github.com/HarishChandran3304/better-env@latest
 git clone https://github.com/HarishChandran3304/better-env.git
 cd better-env
 go build
-sudo mv better-env /usr/local/bin/bnv
+sudo mv better-env ~/usr/local/bin/bnv
 ```
