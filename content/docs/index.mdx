@@ -39,15 +39,21 @@ Never accidentally commit secrets again. `.better-env` files are fully commit-sa
     icon={<Terminal className="text-blue-300" />}   
     title="Shell-friendly"
   >
-    Export/unset to the parent shell, or run commands in an isolated child environment.
+    Start a subshell with secrets or run commands with injected secrets.
   </Card>
 </Cards>
 
 
 ## Installation
 
+### Linux/MacOS
 ```bash
 curl -fsSL https://raw.githubusercontent.com/HarishChandran3304/better-env/main/scripts/install.sh | sh
+```
+
+### Windows
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr -useb https://raw.githubusercontent.com/HarishChandran3304/better-env/main/scripts/install.ps1 | iex"
 ```
 
 ## Setup
@@ -55,9 +61,7 @@ curl -fsSL https://raw.githubusercontent.com/HarishChandran3304/better-env/main/
 ```bash
 bnv setup
 ```
-You will be prompted to do a few things:
-1) Set up a new OpenPGP key
-2) Run a command to add a function to your shell config to load secrets
+You will be prompted to setup a new OpenPGP key.
 
 ## Usage
 
@@ -73,7 +77,14 @@ bnv store KEY
 cd /path/to/my/project
 bnv init
 bnv add KEY
-bnv load
+
+# Interactive shell (recommended)
+bnv shell
+# ... your commands here ...
+exit
+
+# One-off command
+bnv run python3 main.py
 ```
 
 The idea is you store the secrets once in the global store, and you can import and use them in your projects whenever you want.
@@ -82,7 +93,7 @@ The idea is you store the secrets once in the global store, and you can import a
 - The Global Store: A single encrypted store of all your secrets lives in the user's config directory.
 - The Project Link: Each project has a `.better-env` file that lists which keys the project uses.
 - Two ways to use secrets:
-  - `bnv load` / `bnv unload`: set/unset secrets in your current shell via the shell function wrapper
+  - `bnv shell`: start an interactive shell with secrets loaded
   - `bnv run`: run a command with secrets only available to the child process
 
 <Callout>
