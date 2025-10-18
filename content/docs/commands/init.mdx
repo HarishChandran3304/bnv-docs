@@ -17,3 +17,16 @@ Create a `.better-env` file in the current (or specified) directory and link it 
 - `--path, -p` (default `.`): directory to place `.better-env`
 - `--force, -f`: overwrite an existing `.better-env`
 
+### Examples
+
+```bash
+# Create .better-env in the current directory
+bnv init
+
+# Create in a specific directory
+bnv init --path ./services/api
+
+# Overwrite if one already exists
+bnv init -f
+```
+

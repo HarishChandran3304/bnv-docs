@@ -14,8 +14,7 @@
         "add",
         "remove",
         "list",
-        "load",
-        "unload",
+        "shell",
         "run"
     ]
 }
