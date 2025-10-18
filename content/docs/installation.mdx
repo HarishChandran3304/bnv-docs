@@ -9,21 +9,27 @@ icon: Download
 - Go 1.21+
 - Clipboard tools (Linux only): xclip or xsel for bnv copy
 
-## Installation
 
-### Install script
+## Install script
+
+### Linux/MacOS
 ```bash
 curl -fsSL https://raw.githubusercontent.com/HarishChandran3304/better-env/main/scripts/install.sh | sh
 ```
 
-### Go install
+### Windows
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr -useb https://raw.githubusercontent.com/HarishChandran3304/better-env/main/scripts/install.ps1 | iex"
+```
+
+## Go install
 
 ```bash
 go install github.com/HarishChandran3304/better-env@latest
 sudo mv ~/go/bin/better-env ~/usr/local/bin/bnv # Ensure on PATH
 ```
 
-### Build from source
+## Build from source
 
 ```bash
 git clone https://github.com/HarishChandran3304/better-env.git
