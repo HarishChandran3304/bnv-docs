@@ -10,21 +10,15 @@ icon: Computer
 | --- | --- |
 | Linux | ✅ |
 | macOS | ✅ |
-| Windows | Partial support |
+| Windows | Experimental support |
 
 ## Windows
 
-Status: Partial support
+Windos support is experimental.
 
-Works:
-- `setup`, `init`, `store`, `update`, `delete`, `rename`, `show`, `copy`, `import`, `add`, `remove`, `list`, `run`
-
-Limitations:
-- load / unload print POSIX export/unset lines and won’t affect PowerShell/cmd parent shells.
-
-Workarounds:
-- Prefer `bnv run` to execute your app with secrets in the child process environment on native Windows. (Recommended)
-- Use Git Bash or WSL to enable `load`/`unload` via the shell function.
-
-Planned:
-- Native PowerShell integration.
+<Callout type="warning">
+Please note:
+- `bnv run` works as expected.
+- `bnv shell` attempts to launch `pwsh`, then `powershell`, then `cmd.exe` for an interactive session with secrets. Shell startup semantics differ from POSIX shells, so profile scripts may not run the same.
+- For the best experience on Windows, consider WSL or Git Bash/MSYS2.
+</Callout>
