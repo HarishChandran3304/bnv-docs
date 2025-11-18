@@ -31,7 +31,5 @@ icon: History
 ### v0.1.4
 
 - Replace `load` and `unload` commands with a single `shell` command
-
-### v0.1.5
-
-- Fix: Allow adding keys to the project only if they already exist in the global store
+- Add validation to the `add` command to ensure the keys exist in the global store
+- Dont expose plaintext during store and update commands
