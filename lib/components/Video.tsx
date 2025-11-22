@@ -21,19 +21,6 @@ export function Video({ src, className, muted = true, autoPlay = true, loop = tr
     return src;
   }, [src]);
 
-  // Default: speed up to 1.5x
-  React.useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const applyRate = () => {
-      try {
-        v.playbackRate = 1.5;
-      } catch {}
-    };
-    applyRate();
-    v.addEventListener("loadedmetadata", applyRate);
-    return () => v.removeEventListener("loadedmetadata", applyRate);
-  }, []);
 
   // Default: trim the last 0.5s by looping early
   React.useEffect(() => {
