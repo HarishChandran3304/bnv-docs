@@ -12,7 +12,7 @@ export default function HomePage() {
         priority
       />
       <h1 className="mx-auto mb-6 max-w-3xl text-balance text-4xl font-bold text-fd-foreground md:text-4xl">
-        A better way to manage secrets
+        A Secure, Developer-Friendly Alternative to .env
         <br />
         because screw .env
       </h1>
