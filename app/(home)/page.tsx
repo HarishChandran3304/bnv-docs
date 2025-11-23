@@ -13,8 +13,6 @@ export default function HomePage() {
       />
       <h1 className="mx-auto mb-6 max-w-3xl text-balance text-4xl font-bold text-fd-foreground md:text-4xl">
         A Secure, Developer-Friendly Alternative to .env
-        <br />
-        because screw .env
       </h1>
       <p className="mx-auto max-w-2xl text-balance text-lg text-fd-muted-foreground md:text-xl">
         Encrypted Secrets • Zero Plaintext • Instant Runtime Loading • 100% Commit Safe
